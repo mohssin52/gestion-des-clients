@@ -1,0 +1,29 @@
+<div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <span class="text-success">
+                    <h2 class="card-title"><i class="fa fa-lock" aria-hidden="true"> Regestre Panel </i> Client</h2>
+                </span>
+                <form  (ngSubmit)="RegestreClient()">
+                    <div class="form-group">
+
+                        <label for="email">email</label>
+                        <input type="email" name="email" id="email" class="form-control" [(ngModel)] ="email">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" name="password" id="password" class="form-control" [(ngModel)] = "password"
+                        >
+                    </div> <br>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success">registre</button>
+                    </div> <br>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

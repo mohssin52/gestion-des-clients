@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-md-12">
+        <a href=""> <i class="fa fa-arrow-circle-left" aria-hidden="true"> back to dashboard</i></a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+     <div class="card text-white bg-dark ">
+         <div class="card-body">
+             <h4 class="card-title"><i class="fa fa-user" aria-hidden="true"></i> new client</h4>
+       <form  #v = "ngForm" (ngSubmit)="onsubmit()"> 
+             <div class="form-group">
+              <label for="firstname"></label>
+              <input type="text"
+               name="firstname"
+               id="firstname" 
+               class="form-control"
+                placeholder="firstname"
+                required
+                minlength="3"
+                [(ngModel)] ="myClient.firstname"
+                #clientFirstname ="ngModel"
+                [ngClass] ="{'is-invalid':clientFirstname.errors && clientFirstname.touched}"
+                >
+                <div [hidden] ="!clientFirstname.errors?.required " class ="invalid-feedback">
+                     ce champ est obligatoir
+                </div>
+                <div [hidden] ="!clientFirstname.errors?.minlength " class ="invalid-feedback">
+                    ce champ doit avoir au moin 3 caracters
+               </div>
+
+            </div>
+            <div class="form-group">
+                <label for="lastname"></label>
+                <input type="text"
+                 name="lastname"
+                 id="lastname" 
+                 class="form-control"
+                  placeholder="lastname"
+                  required 
+                  minlength="3"
+                  [(ngModel)] ="myClient.lastname"
+                  #clientlastname ="ngModel"
+                  [ngClass] ="{'is-invalid':clientlastname.errors && clientlastname.touched}"
+                  >
+                  <div [hidden] ="!clientlastname.errors?.required " class ="invalid-feedback">
+                       ce champ est obligatoir
+                  </div>
+                  <div [hidden] ="!clientlastname.errors?.minlength " class ="invalid-feedback">
+                      ce champ doit avoir au moin 3 caracters
+                 </div>
+  
+              </div>
+              <div class="form-group">
+                <label for="email"></label>
+                <input type="text"
+                 name="email"
+                 id="email" 
+                 class="form-control"
+                  placeholder="email"
+                  required
+                  minlength="15"
+                  [(ngModel)] ="myClient.email"
+                  #clientemail ="ngModel"
+                  [ngClass] ="{'is-invalid':clientemail.errors && clientemail.touched}"
+                  >
+                  <div [hidden] ="!clientemail.errors?.required " class ="invalid-feedback">
+                       ce champ est obligatoir
+                  </div>
+                  <div [hidden] ="!clientemail.errors?.minlength " class ="invalid-feedback">
+                      ce champ doit avoir au moin 15 caracters
+                 </div>
+  
+              </div>
+              <div class="form-group">
+                <label for="phone"></label>
+                <input type="text"
+                 name="phone"
+                 id="phone" 
+                 class="form-control"
+                  placeholder="phone"
+                  required
+                  minlength="10"
+                  [(ngModel)] ="myClient.phone"
+                  #clientphone ="ngModel"
+                  [ngClass] ="{'is-invalid':clientphone.errors && clientphone.touched}"
+                  >
+                  <div [hidden] ="!clientphone.errors?.required " class ="invalid-feedback">
+                       ce champ est obligatoir
+                  </div>
+                  <div [hidden] ="!clientphone.errors?.minlength " class ="invalid-feedback">
+                      ce champ doit avoir  10 number
+                 </div>
+  
+              </div>
+              <div class="form-group">
+                <label for="balancer"></label>
+                <input type="text"
+                 name="balancer"
+                 id="balancer" 
+                 class="form-control"
+                  placeholder="balancer"
+                  required
+                  
+                  [(ngModel)] ="myClient.balancer"
+                  #clientbalancer ="ngModel"
+                  [ngClass] ="{'is-invalid':clientbalancer.errors && clientbalancer.touched}"
+                  >
+                  <div [hidden] ="!clientbalancer.errors?.required " class ="invalid-feedback">
+                       ce champ est obligatoir
+                  </div>
+                  
+              </div>
+         <button class="btn btn-danger btn-block" type ="submit" [disabled] ="!v.valid" >update</button>
+
+            </form>
+         </div>
+     </div>
+    </div>
+</div>

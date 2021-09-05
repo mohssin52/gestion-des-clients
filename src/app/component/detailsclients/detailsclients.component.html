@@ -1,0 +1,46 @@
+
+<div class="row m-3">
+     <div class="col-md-6">
+    <a routerLink ="/"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> back to dashbord</a>
+        </div>
+        <div class="col-md-6">
+        <div class="btn-group pull-right">
+
+            <Button class="btn btn-danger"><a routerLink="/client/edit/{{id}}"> <i class="fa fa-pencil" aria-hidden="true"></i></a> Edit </Button>
+            <Button class="btn btn-dark" (click) ="deleteClient(id)"> <i class="fa fa-trash" aria-hidden="true"></i> delete</Button>
+        </div>
+   
+   </div>
+</div>
+<div class="card">
+  
+    <div class="card-body">
+        <h4 class="card-title"> {{myClient.firstname}} {{myClient.lastname}} </h4>
+        <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item"> <strong>id</strong> {{id}}</li>
+                <li class="list-group-item"> <strong>phone</strong>  {{myClient.phone}}</li>
+                <li class="list-group-item"> <strong>balancer</strong>  {{myClient.balancer}}</li>
+            </ul>
+        </div>
+        <div   class="col-md-4 text-right" >
+          balancer <button class="btn btn-success " (click) ="statusContact=!statusContact" > <i class="fa fa-pencil" aria-hidden="true"></i></button>
+        <h4 [ngClass]="{'text-danger':statusContact, 'text-success':!statusContact}" >{{myClient.balancer|currency:'USD':'symbol'}}</h4>
+        <div *ngIf="statusContact">
+       <form (ngSubmit)="onsubmit()">
+<div class="input-group">
+    
+   <input type="text"  class ="form-control" [(ngModel)] ="myClient.balancer" name ="balancer"> <button class="btn btn-warning">Update</button> 
+
+</div>
+    
+        
+        </form>
+        </div>
+        </div>
+
+        </div>
+   
+    </div>
+</div>
